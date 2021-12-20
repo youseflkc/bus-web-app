@@ -1,0 +1,445 @@
+/* rogrammer name: 55
+    style sheet
+*/
+
+.html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: rgb(58, 57, 57);
+  font-size: 2.4rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.tripTable {
+  display: none;
+}
+
+#tripsAll {
+  display: table;
+}
+
+.alert {
+  padding: 0.5rem 1rem;
+  background-color: #ff4545;
+  color: white !important;
+  margin-bottom: 15px;
+  position: fixed;
+  z-index: 1000;
+  top: 0%;
+  right: -550px;
+  transition: transform 0.2s;
+}
+
+.alert--success {
+  background-color: rgb(12, 170, 12);
+}
+
+.animate__shakeX {
+  --animate-duration: 0.5s;
+}
+
+.alert--display {
+  transform: translateX(-550px);
+}
+
+.bg-danger {
+  background-color: red;
+  opacity: 0;
+}
+
+.busTrips--container {
+  grid-template-columns: 1fr 4fr;
+}
+
+.container {
+  margin: 0.5rem 2rem;
+  opacity: 0;
+  position: relative;
+  height: 0;
+  display: block;
+  line-height: 0%;
+  z-index: 0;
+  overflow: hidden;
+  width: auto;
+  transition: opacity 0.2s;
+}
+
+.side-menu {
+  width: 100%;
+}
+
+.subtable {
+  max-height: 0;
+  display: block;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+  margin-top: 0rem;
+  border: solid 3px rgb(177, 177, 177);
+  border-radius: 1rem;
+  justify-self: right;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.subtable.expanded {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.subtable td {
+  padding: 0.5rem !important;
+  border-bottom: 0ch;
+  border-top: 0ch !important;
+}
+
+.subtable th {
+  padding: 0ch;
+  border-top: 0ch !important;
+}
+
+@media screen and (max-width: 1366px) {
+  .container {
+    grid-template-rows: 1fr auto;
+    grid-template-columns: auto;
+  }
+  #busTrips {
+    grid-template-columns: auto;
+  }
+
+  .table {
+    width: 100px;
+  }
+
+  .maintable {
+    font-size: 1rem;
+  }
+
+  .maintable td {
+    border-top: solid 1px #b1b1b1;
+    padding: 0.5rem 0.7rem;
+  }
+
+  .side-menu {
+    width: 50%;
+    justify-self: center;
+  }
+}
+
+#busTrips {
+  display: grid;
+  height: 100%;
+  opacity: 1;
+  grid-column-gap: 1.6rem;
+  grid-auto-flow: column;
+  line-height: 1;
+  z-index: 99;
+  overflow: auto;
+}
+
+.trip-filter {
+  width: 100%;
+  height: max-content;
+  border: solid 1px rgb(177, 177, 177);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.trip-filter__list {
+  list-style: none;
+  font-size: 1.2rem;
+  padding: 0rem;
+  text-align: center;
+  margin: 0;
+}
+
+.dropdown.trip-filter__item.active {
+  background-color: white;
+}
+
+.dropdown.trip-filter__item.active:hover {
+  background-color: white;
+}
+
+.trip-filter__item {
+  border-bottom: solid 1px rgb(165, 162, 162);
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown .trip-filter__item {
+  position: relative;
+  z-index: 1;
+}
+
+.trip-filter__item:hover {
+  background-color: rgb(182, 229, 245);
+}
+
+.trip-filter__item.active {
+  background-color: rgb(67, 198, 241);
+}
+
+a {
+  text-decoration: none;
+}
+
+.table-arrow {
+  cursor: pointer;
+}
+
+.table-arrow:hover {
+  color: black;
+}
+
+.link-arrow {
+  margin-left: 1rem;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: white;
+  text-decoration: none;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.no-edit {
+  background-color: lightgray;
+}
+
+.link-arrow::before {
+  content: "\2190";
+  font-size: 2rem;
+  position: relative;
+  right: 5px;
+  transition: all 0.2s;
+}
+
+.link-arrow:hover::before {
+  right: 10px;
+}
+
+/* source: https://www.w3schools.com/howto/howto_css_loader.asp */
+.loader {
+  display: none;
+  margin: auto;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #064449; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  text-align: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.nav {
+  background-color: #064449;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav__logo {
+  color: #d2d0db;
+  font-size: 1.6rem;
+  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__logo > img {
+  width: 130px;
+}
+
+.nav__item {
+  color: #d2d0db;
+  transition: color 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: solid 2px rgba(255, 255, 255, 0);
+  transition: border-bottom 0.3s;
+}
+
+.nav__item:hover {
+  color: white;
+}
+
+.nav__item.active {
+  border-bottom: solid 2px rgba(255, 255, 255, 1);
+}
+
+.nav__item.link-arrow {
+  color: rgb(58, 57, 57);
+  border: 0ch;
+  width: max-content;
+}
+
+.nav__item.link-arrow:hover {
+  color: black;
+}
+
+.maintable {
+  margin-top: 2rem;
+  justify-self: center;
+  border-collapse: collapse;
+  font-size: 1.2rem;
+  max-width: 1200px;
+  height: max-content;
+}
+
+.maintable th {
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+}
+.passengersTable th {
+  cursor: auto;
+}
+
+.maintable tbody {
+  text-align: center;
+}
+
+.maintable td {
+  border-top: solid 1px #b1b1b1;
+  padding: 0.8rem 1rem;
+}
+
+.maintable tr {
+  transition: opacity 1s;
+}
+
+select {
+  background-color: white;
+}
+
+.icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  left: 5px;
+}
+
+.icon--sort {
+  display: none;
+}
+
+.icon--primary {
+  background-color: rgba(255, 255, 255, 0);
+  fill: black;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s;
+}
+
+.icon--up {
+  top: 5px;
+  left: 5px;
+  transform: rotate(-180deg);
+}
+
+#icon1 {
+  display: inline;
+}
+
+.icon--right {
+  top: 5px;
+  left: 5px;
+  transform: rotate(-90deg);
+}
+
+.collapsible {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.collapsible.expanded {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.btn {
+  font-size: 1.4rem;
+  width: 100%;
+  padding: 0.4rem 1rem;
+  margin: 1rem 0;
+  border: 0;
+  border-radius: 0.28rem;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.btn--danger {
+  background-color: rgb(255, 69, 69);
+  color: white;
+}
+
+.btn--danger:hover {
+  background-color: rgb(209, 59, 59);
+}
+
+.btn--primary {
+  background-color: rgb(18, 153, 153);
+  color: white;
+}
+
+.btn--primary:hover {
+  background-color: rgb(18, 135, 135);
+}
+
+.tripImg {
+  width: 125px;
+}
+
+.edit-trip {
+  display: flex;
+  flex-direction: column;
+  margin: 4rem;
+}
+
+.edit-trip__input {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: rgb(58, 57, 57);
+  font-size: 1.2rem;
+  margin: 0 1rem 1.5rem 1rem;
+  border-radius: 0.25rem;
+  border: solid 2px lightblue;
+  padding: 0.4rem 1rem;
+}
+
+.edit-trip__label {
+  font-size: 1.2rem;
+  margin: 0rem 1rem 0;
+}
+
+.edit-trip__input:focus {
+  box-shadow: 0 0 3px 3px lightblue;
+  outline: 0ch;
+}
+
+.edit-trip .btn {
+  align-self: center;
+  width: 50%;
+}
