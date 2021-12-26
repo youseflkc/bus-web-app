@@ -436,7 +436,10 @@ function toggleEdit() {
         this.value + "end"
       ).innerHTML;
 
-      if (document.getElementById("editImage").value != IMAGEPLACEHOLDERURL) {
+      if (
+        document.getElementById(this.value + "image").value !=
+        IMAGEPLACEHOLDERURL
+      ) {
         document.getElementById("editImage").value = document.getElementById(
           this.value + "image"
         ).src;
