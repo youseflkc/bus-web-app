@@ -3,9 +3,9 @@
 //     connects to the database
 // -->
 
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "cs3319";
+$dbhost = "busdb.cmkhedrzsfor.us-east-2.rds.amazonaws.com";
+$dbuser = "admin";
+$dbpass = "Z8Ph82JeHInTxoR9pmKA";
 $dbname = "55_assign2db";
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 if (mysqli_connect_errno()) {
