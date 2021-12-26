@@ -1,5 +1,8 @@
 //programmer name: 55
 
+const IMAGEPLACEHOLDERURL =
+  "https://safe-escarpment-53756.herokuapp.com/images/image-placeholder.jpg";
+
 //these are event listeners for any element that can be clicked
 const navItems = document.querySelectorAll(".nav__item");
 const containers = document.querySelectorAll(".container");
@@ -432,9 +435,13 @@ function toggleEdit() {
       document.getElementById("editEnd").value = document.getElementById(
         this.value + "end"
       ).innerHTML;
-      document.getElementById("editImage").value = document.getElementById(
-        this.value + "image"
-      ).src;
+
+      if (document.getElementById("editImage").value != IMAGEPLACEHOLDERURL) {
+        document.getElementById("editImage").value = document.getElementById(
+          this.value + "image"
+        ).src;
+      }
+
       document.getElementById("editID").value = this.value;
     } else {
       table.style.opacity = "0";
